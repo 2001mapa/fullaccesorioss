@@ -1,185 +1,158 @@
 /* Reset básico */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Estilos básicos del body */
-  body {
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    background-color: #111;
-    color: #fff;
-    overflow-x: hidden; /* Evitar desplazamiento horizontal */
-    position: relative;
-    height: 100vh; /* Aseguramos que el body ocupe toda la altura de la pantalla */
-  }
-  .TitleFull{
-    color: #fce5cd;
-    text-shadow: 2px 2px 8px #030003;
-    margin-bottom: 20px;
-  }
-  /* Fondo de video */
-  .video-background {
-    position: fixed; /* Asegura que el video se quede fijo en el fondo */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1; /* Asegura que el video esté detrás del contenido */
-  }
-  
-  video {
-    object-fit: cover; /* Hace que el video cubra toda el área sin distorsionarse */
-    width: 100%;
-    height: 100%;
-    background: #000;
-  }
-  
-  /* Contenedor de todo el contenido */
-  .container {
-    background-color: rgba(255, 255, 255, 0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80vw;
-    max-width: 400px;
-    margin: 120px auto 0 auto;
-    position: relative; /* Necesario para que los elementos flotantes estén encima del video */
-    border-radius: 15px;
-    bottom: 20px;
-  }
-  
-  /* Botón de compartir (no cambia mucho en móviles) */
-  .share-button {
-    display: flex;
-    align-self: flex-end;
-    color: #fff;
-    margin-bottom: 12px;
-    transition: transform 0.3s ease;
-  }
-  
-  .share-icon {
-    font-size: 32px;
-    background-color: #222;
-    padding: 12px;
-    border-radius: 50%;
-  }
-  
-  /* Logo en movimiento */
-  .img-container {
-    border-radius: 50px;
-    
-    height: 96px;
-    width: 96px;
-    margin-bottom: 12px;
-    transition: transform 0.3s ease;
-  }
-  
-  .logo:hover {
-    transform: rotate(15deg) scale(1.1);
-  }
-  
-  /* Título */
-  h1 {
-    font-size: 20px;
-    margin-bottom: 32px;
-  }
-  
-  /* Imagen de perfil */
-  img {
-    box-shadow: 2px 2px 8px rgba(3, 0, 3, 0.5);
-    margin-top: 10px;
-    width: 100%;
-    border-radius: 50%;
-    background-size: cover;
-  }
-  .footer { 
-    margin-top: 100px;
-    font-style: italic;
-    color: white; 
-    text-align: center; 
-    padding: 10px 0; 
-    position: relative; 
-    bottom: 0; 
-    width: 100%;
-    font-size: 12px; /* Ajusta este valor al tamaño que prefieras */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-  /* Estilos de los enlaces */
-  .link-card {
-    text-shadow: 2px 2px 8px rgba(3, 0, 3, 1);
-    border-radius: 20px;
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
-    background-color: #4b4a4a;
-    padding: 10px 15px;
-    color: #fff;
-    text-decoration: none;
-    margin-bottom: 24px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-  }
-  
-  .link-card:hover {
-    transform: translateX(10px);
-  }
-  
-  .link-card p {
-    flex-grow: 1;
-    text-align: center;
-  }
-  
-  /* Efectos de hover para redes sociales */
-  .link-card:hover[href*="wa.me"] {
-    background: linear-gradient(135deg, #075e54, #128c7e, #25d366, #dcf8c6, #ece5dd);
-  }
-  
-  .link-card:hover[href*="tiktok.com"] {
-    background: linear-gradient(135deg, #010101, #69C9D0, #FFFFFF, #EE1D52);
-  }
-  
-  .link-card:hover[href*="instagram.com"] {
-    background: linear-gradient(135deg,#405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D,  #F56040, #F77737, #FCAF45, #FFDC80);
-  }
-  
-  .link-card:hover[href*="gmail.com"] {
-    background: linear-gradient(135deg,	#3e65cf, #c71610,	#f2a60c, #3b60c4, #08851b);
-  }
-  
-  .link-card:hover .icons {
-    color: #fff;
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-  }
-  
-  /* Media Queries para adaptabilidad móvil */
-  @media (max-width: 768px) {
-    .container {
+/* Estilos básicos del body */
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  background-color: #111;
+  color: #fff;
+  overflow-x: hidden; /* Evitar desplazamiento horizontal */
+  position: relative;
+  height: 100vh; /* Aseguramos que el body ocupe toda la altura de la pantalla */
+}
+
+.TitleFull {
+  color: #ffffff;
+  text-shadow: 2px 2px 8px #030003;
+  margin-bottom: 20px;
+}
+
+/* Fondo de imagen */
+.image-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url('Imagen Fondo.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Contenedor de todo el contenido */
+.container {
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  max-width: 400px;
+  margin: 120px auto 0 auto;
+  position: relative; /* Necesario para que los elementos flotantes estén encima de la imagen */
+  border-radius: 15px;
+  bottom: 20px;
+}
+
+/* Logo en movimiento */
+.img-container {
+  border-radius: 50px;
+  height: 96px;
+  width: 96px;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* Imagen de perfil */
+.img_logo {
+  box-shadow: 2px 2px 8px rgba(3, 0, 3, 0.5);
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+/* Estilos de los enlaces */
+.link-card {
+  text-shadow: 2px 2px 8px rgba(3, 0, 3, 1);
+  border-radius: 20px;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #4b4a4a;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 24px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.link-card:hover {
+  transform: translateX(10px);
+}
+
+/* Estilos de los enlaces y efectos de hover */
+.link-card p {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.link-card:hover[href*="wa.me"] {
+  background: linear-gradient(135deg, #075e54, #128c7e, #25d366, #dcf8c6, #ece5dd);
+}
+
+.link-card:hover[href*="tiktok.com"] {
+  background: linear-gradient(135deg, #010101, #69C9D0, #FFFFFF, #EE1D52);
+}
+
+.link-card:hover[href*="instagram.com"] {
+  background: linear-gradient(135deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+}
+
+.link-card:hover[href*="gmail.com"] {
+  background: linear-gradient(135deg, #3e65cf, #c71610, #f2a60c, #3b60c4, #08851b);
+}
+
+.link-card:hover .icons {
+  color: #fff;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* Media Queries para adaptabilidad móvil */
+@media (max-width: 768px) {
+  .container {
       width: 90vw;
       margin-top: 60px;
-    }
-  
-    h1 {
+  }
+
+  h1 {
       font-size: 18px;
       margin-bottom: 20px;
-    }
-  
-    .img-container {
+  }
+
+  .img-container {
       height: 80px;
       width: 80px;
-    }
-  
-    .link-card {
+  }
+
+  .link-card {
       font-size: 16px;
       padding: 8px 12px;
-    }
-  
-    .link-card p {
-      font-size: 14px;
-    }
   }
-  
+
+  .link-card p {
+      font-size: 14px;
+  }
+}
+
+.footer { 
+  margin-top: 100px;
+  font-style: italic;
+  color: white; 
+  text-align: center; 
+  padding: 10px 0; 
+  position: relative; 
+  bottom: 0; 
+  width: 100%;
+  font-size: 12px; /* Ajusta este valor al tamaño que prefieras */
+}
