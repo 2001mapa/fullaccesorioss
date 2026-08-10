@@ -1,0 +1,227 @@
+/* Custom variables for theming */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --card-hover: rgba(255, 255, 255, 0.25);
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --transition-speed: 0.3s;
+}
+
+/* Reset básico */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos básicos del body */
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  background-color: #111;
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Fondo de imagen (fijo y adaptativo) */
+.image-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url('Imagen Fondo.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+/* Oscurecer un poco el fondo para que el cristal resalte más */
+.image-background::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Contenedor principal con Glassmorphism */
+.container {
+  /* Glassmorphism base */
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  
+  /* Sizing mobile-first */
+  width: 90%;
+  max-width: 450px;
+  margin: 60px auto 40px auto;
+  padding: 40px 20px;
+  border-radius: 24px;
+}
+
+/* Contenedor del logo */
+.img-container {
+  height: 100px;
+  width: 100px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Imagen de perfil */
+.img_logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Título */
+.TitleFull {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+/* Contenedor de enlaces */
+.links-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Botón individual (Link card) */
+.link-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 16px 20px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  
+  transition: all var(--transition-speed) ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.link-card p {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 16px;
+  z-index: 2;
+}
+
+.icons {
+  font-size: 24px;
+  z-index: 2;
+  transition: transform var(--transition-speed) ease;
+}
+
+/* Icono de compartir (copiar enlace) */
+.share-icon {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.share-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Efectos Hover Desktop */
+@media (min-width: 768px) {
+  .link-card:hover {
+    transform: translateY(-4px);
+    background: var(--card-hover);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  }
+
+  .link-card:hover .icons {
+    transform: scale(1.15);
+  }
+
+  /* Colores específicos de marca en hover */
+  .link-card.whatsapp:hover {
+    background: linear-gradient(135deg, #128c7e, #25d366);
+    border-color: #25d366;
+  }
+  
+  .link-card.tiktok:hover {
+    background: linear-gradient(135deg, #010101, #69C9D0, #EE1D52);
+    border-color: #69C9D0;
+  }
+  
+  .link-card.instagram:hover {
+    background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCAF45);
+    border-color: #FCAF45;
+  }
+  
+  .link-card.email:hover {
+    background: linear-gradient(135deg, #EA4335, #FBBC05);
+    border-color: #FBBC05;
+  }
+  
+  .container {
+    margin: 80px auto;
+    padding: 50px 30px;
+  }
+}
+
+/* Efecto Ripple / Brillo en el botón */
+.link-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  transition: all 0.75s ease;
+  z-index: 1;
+}
+
+.link-card:hover::before {
+  left: 200%;
+}
+
+/* Footer */
+.footer { 
+  margin-top: auto;
+  color: var(--text-secondary); 
+  text-align: center; 
+  padding: 20px 0; 
+  width: 100%;
+  font-size: 13px;
+  font-weight: 400;
+  text-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px); /* Ligero cristal en footer */
+}
